@@ -1,0 +1,225 @@
+# Create a class for the player character
+class Player:
+  def __init__(self, name, class_):
+    self.name = name
+    self.class_ = class_
+    self.max_health = 250
+    self.health = 250
+    self.attack = 25
+    self.defense = 5
+  
+  # Create a method for the player to attack an enemy
+  def attack(self, enemy):
+    damage = self.attack - enemy.defense
+    enemy.health -= damage
+    print(f"{self.name} attacked {enemy.name} for {damage} points of damage")
+
+# Create a class for enemies
+class Enemy:
+  def __init__(self, name, max_health, attack, defense):
+    self.name = name
+    self.max_health = 50
+    self.health = 50
+    self.attack = 5
+    self.defense = 1
+# World class
+class World:
+  def __init__(self, name, class_):
+    self.name = name
+    self.class_ = class_
+#Forest 
+
+
+# Create a function to allow the player to choose a character class
+def choose_class():
+  while True:
+    print("Choose a class:")
+    print("1. Warrior")
+    print("2. Mage")
+    print("3. Rogue")
+    choice = input("> ")
+    if choice == "1":
+      return "Warrior"
+    elif choice == "2":
+      return "Mage"
+    elif choice == "3":
+      return "Rogue"
+    else:
+      print("Invalid choice")
+
+# Create a function to handle combat
+def combat(player, enemy):
+  while player.health > 100 or enemy.health > 50:
+    print(f"{player.name}'s turn")
+    print("1. Attack")
+    print("2. Defend")
+    action = input("> ")
+    if action == "1":
+      enemy.health-=player.attack
+      print(enemy.health)
+    elif action == "2":
+      player.defense += 2
+      print(f"{player.name}'s defense increased to {player.defense}")
+    else:
+      print("Invalid action")
+      
+    if enemy.health <= 0:
+         print(f"{player.name} defeated {enemy.name}!")
+         print("You Defeated the Goblin King")
+         print("1. Take the Heade of the Gobin and show it to the Goblin Village")
+         print("2. Take the Head to the Axolotl Village")
+         action = input("> ")
+         if action == "1":
+          print("The Goblins attack you and you ran into the Woods ")
+          print("1. Sneek into the village and kill of one Goblin at a time")
+          print("2. Go in to the trees")
+         elif action == "2":
+          print("you arrived at the Axolotl Village they see that you have the Head of the Renowened Goblin King")
+          print("1. Stay at the Village")
+          print("2. Propose a plan to Take over The Turtel Castel")
+          action = input("> ")
+          if action =="1":
+            print("You stayed at the Butiefull village in the Trees")
+            print("1. Help the Axolotl to wipe out the Goblins")
+            print("2. Tell the Acolotl King take out all the Gobblins")
+            action = input("> ")
+            if action == "1":
+              print("You took out the Goblins")
+              print("1. Throw a Party ")
+              print("2. Go to the Castle")
+          elif action == "2":
+            print("The Axolotls dicided to help you")
+            print("1. Go direktly to the Castle")
+            print("2. Go to the Goblins and Take them out first")
+            action = input("> ")
+            if action == "1":
+              print("At the Castle the army went into the Throne Room ")
+              print("1. Go to the Cellar")
+              action = ("> ")
+              
+    if player.health <= 0:
+         print(f"{player.name} was defeated by {enemy.name}.")
+         break
+
+# Main game loop
+def game_loop():
+  world_name = input("Enter your worlds name")
+  player_name = input("Enter your character's name: ")
+  player_class = choose_class()
+  player = Player(player_name, player_class)
+  enemy = Enemy("Goblin", 50, 5, 2)
+  
+  while True:
+    print("welcome to the realm of ", world_name, player_name)
+    print("1. Kid mode")
+    print("2. View character stats")
+    print("3. Adult")
+    action = input("> ")
+    if action == "1":
+      print("You wander through the forest...")
+      print("1.Go to the Castle")
+      print("2. View charracter Stats")
+      action = input("> ")
+      if action == "1":
+        print("you wander to the Dark Castle in the distance")
+        print("1. enter the Castle")
+        print("2. stay outside")
+        action = input("> ")
+        if action == "1":
+          print("you go into the dark Castle and see two guards")
+          print("1. Snuggle both to sleep")
+          print("2. Kill them with a Sugar overdose")
+          action = input("> ")
+          if action == "1":
+            print("both go to sleep and let you pass you get into the throne room ")
+            print("1. Call your Mom")
+            print("2. Shoot your Marschmellow-gun")
+            action = input("> ")
+            if action == "1":
+              print("Its fine that you called your mom but I dont think she can help you")
+              print("1. Do the smart thing and just shoot him")
+              print("2. snuggle him to sleep with your Cocomelon toy")
+              action = input("> ")
+              if action == "1":
+                print("you shot him he wont be a Problem anymore")
+                print("1. You go into the cellar")
+                print("roll creds ")
+                action = input("> ")
+                if action == "1":
+                  print("The credits started")
+                  print("Developed by Noam Liebstein")
+                  print("Support team")
+                  print("Mag. Patrick Koger")
+                  print("Mag.a Franziska Homann")
+                  print("Playtester")
+                  print("Poyraz Olcay")
+              elif action == "1":
+                print("Roll the creds")
+                print("Developed by Noam Liebstein")
+                print("Support team")
+                print("Mag. Patrick Koger")
+                print("Mag.a Franziska Homann")
+                print("Playtester")
+                print("Poyraz Olcay")
+
+                action = ("> ")
+                if action == "1":
+                  print ("The credits roll")
+                  print("Developed by Noam Liebstein")
+                  print("Support team")
+                  print("Mag. Patrick Koger")
+                  print("Mag.a Franziska Homann")
+                  print("Playtester")
+                  print("Poyraz Olcay")
+              elif action =="2":
+               print("You are a baby")
+               print("roll the Credits")                         
+               print("Developed by Noam Liebstein")
+               print("Support team")
+               print("Mag. Patrick Koger")
+               print("Mag.a Franziska Homann")
+               print("Playtester")
+               print("Poyraz Olcay")
+        
+            
+            elif action == "2":
+              print("you did it")
+              print("Roll the credits")
+              print("Developed by Noam Liebstein")
+              print("Support team")
+              print("Mag. Patrick Koger")
+              print("Mag.a Franziska Homann")
+              print("Playtester")
+              print("Poyraz Olcay")
+
+
+        elif action == "2":
+          print("you see an Axolotl")
+          print("1. Interact with it ")
+          print("2. Attack")
+          action = input("> ")
+          if action == "1":
+            print("the Axolotl gave you courage and you decide to go to the Castle" )
+            print("you go into the dark Castle and see two guards")
+            print("1. Wait until they go away ")
+            print("2. ignore them")
+            action = input("> ")
+            if action =="1":
+              print("They went Away")
+
+          elif action == "2":
+            ("you Monster you are dead now restart") 
+            break
+      elif action == "2":
+        print(player)
+
+    elif action == "2":
+      print(player)
+    elif action == "3":
+      combat(player, enemy)
+    else:
+      print("Invalid action")
+
+     
+
+game_loop()
