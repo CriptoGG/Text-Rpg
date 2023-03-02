@@ -1,3 +1,13 @@
+echo "# Text-Rpg" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/CriptoGG/Text-Rpg.git
+git push -u origin main
+ 
+
+
 # Create a class for the player character
 class Player:
   def __init__(self, name, class_):
@@ -22,6 +32,13 @@ class Enemy:
     self.health = 50
     self.attack = 5
     self.defense = 1
+class Boss:
+  def __init__(self,name,max_health,attack,defense):
+    self.name = name
+    self.max_health = 500
+    self.health = 500
+    self.attack = 225
+    self.defense = 100    
 # World class
 class World:
   def __init__(self, name, class_):
@@ -206,7 +223,7 @@ def game_loop():
             action = input("> ")
             if action =="1":
               print("They went Away")
-
+              
           elif action == "2":
             ("you Monster you are dead now restart") 
             break
